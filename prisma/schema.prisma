@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  email           String    @unique @db.VarChar(200)
+  name            String    @db.VarChar(200)
+  mobile          String    @unique @db.VarChar(15)
+  password        String    @db.VarChar(200)
+  unqueCode       String?   @db.VarChar(200)
+  locationAddress String?   @db.VarChar(20)
+  status          Boolean   @default(false)
+  role            User_role @default(USER)
+  defaultPassword Boolean   @default(true)
+  createdAt       DateTime  @default(dbgenerated("NOW()")) @db.DateTime
+  updatedAt       DateTime  @updatedAt
+}
+
+model Prouduct {
+  id         Int     @id @default(autoincrement())
+  name       String  @db.VarChar(200)
+  price      Int     @default(0)
+  availablty Boolean @default(false)
+}
+
+model Transaction {
+  id Int @id @default(autoincrement())
+
+  name          String  @db.VarChar(200)
+  amount        Int     @default(0)
+  status        Boolean @default(false)
+  statusMessage String  @db.VarChar(100)
+
+  createdAt DateTime @default(dbgenerated("NOW()")) @db.DateTime
+  updatedAt DateTime @updatedAt
+}
+
+enum User_role {
+  USER
+  ADMIN
+}
