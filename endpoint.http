@@ -1,0 +1,22 @@
+### USER SIGN UP
+POST localhost:8800/user/signUp
+Accept: application/json
+Content-Type: application/json
+
+{
+  "fullname": "hijizaly Kimaro",
+  "email": "hijizali@gmail.com",
+  "mobile": "0756226906",
+  "password": "123a456"
+}
+
+
+### USER SIGN IN
+POST localhost:8800/user/signIn
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "hijizali@gmail.com",
+  "password": "123a456"
+}
