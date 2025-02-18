@@ -20,3 +20,21 @@ Content-Type: application/json
   "email": "hijizali@gmail.com",
   "password": "123a456"
 }
+
+
+### ADD PRODCUT
+POST localhost:8800/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productName": "SERVICE 2",
+  "price": 1000,
+  "quantity": 12
+}
+
+### GET ALL PRODUCT
+GET localhost:8800/product
+Accept: application/json
+Content-Type: application/json
+
